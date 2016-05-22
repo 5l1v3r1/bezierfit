@@ -41,3 +41,5 @@ Solving a least-squares problem like this is an optimization problem (but not ne
  * Good local minima are discovered by solving multiple optimization problems from random starting points.
 
 This non-convex optimization problem is relatively easy for a number of reasons. First, there are only four parameters, so even inefficient optimization techniques are relatively quick. Second, all parameters will tend to be around the same order of magnitude (i.e. bezier parameters are all relatively close to the range [0,1]). Third, not too much precision is needed, so using tons of numerical approximations is acceptable.
+
+**UPDATE:** it looks like the space of solutions actually *is* convex, or in the very least quasi-convex. This is worth looking into, because it could mean an automatic 10x speedup (because we wouldn't have to look for multiple local minima).
