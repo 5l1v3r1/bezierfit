@@ -58,6 +58,12 @@ func gradientDescent(points []Point, anim *BezierAnimation) {
 		}
 		for i, g := range gradient {
 			*paramPtrs[i] -= g * descentStepSize
+
+			// X parameters are bounded, so let's use a really
+			// crude active-set method.
+			if i%2 == 0 {
+				*paramPtrs[i] = math.Max(0, math.Min(1, *paramPtrs[i]))
+			}
 		}
 		newErr := meanSquaredError(points, anim)
 		if newErr > oldError {
