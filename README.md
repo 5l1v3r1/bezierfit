@@ -17,6 +17,7 @@ Now you can run the bezierfit command as follows. For the purpose of example, I 
 
 ```
 $ go run cmd/main.go
+Enter lines of the form 'x y'; EOF to finish:
 0.1 0.3
 0.2 0.5
 0.5 0.8
