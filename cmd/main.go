@@ -34,7 +34,7 @@ func readPoint() (x, y float64, err error) {
 	if err != nil {
 		return 0, 0, err
 	}
-	parts := strings.Split(line, " ")
+	parts := strings.Fields(line)
 	if len(parts) != 2 {
 		return 0, 0, errors.New("invalid input: " + line)
 	}
