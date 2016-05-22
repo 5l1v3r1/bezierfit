@@ -30,3 +30,12 @@ func TestBestFitBounds(t *testing.T) {
 		t.Error("bezier curve x value is greater than 1")
 	}
 }
+
+func BenchmarkBestFit(b *testing.B) {
+	p1 := Point{0.3, 0.2}
+	p2 := Point{0.7, 0.8}
+	p3 := Point{0.5, 0.56}
+	for i := 0; i < b.N; i++ {
+		BestFit([]Point{p1, p2, p3})
+	}
+}
