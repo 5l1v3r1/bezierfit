@@ -8,6 +8,7 @@ import (
 const (
 	bestFitAttempts   = 10
 	derivativeEpsilon = 1e-4
+	acceptableError   = 1e-8
 )
 
 var descentStepSizes = []float64{4, 1, 0.3, 0.1}
@@ -31,6 +32,9 @@ func BestFit(points []Point) *BezierAnimation {
 		}
 		gradientDescent(points, anim)
 		err := meanSquaredError(points, anim)
+		if err < acceptableError {
+			return anim
+		}
 		if err < minError || i == 0 {
 			minError = err
 			bestFit = anim
