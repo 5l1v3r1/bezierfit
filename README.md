@@ -28,7 +28,7 @@ cubic-bezier(0.287,1.071,0.814,0.780)
 
 The bezier curve it provided looks like this:
 
-![Demo Bezier curve](demo_success.png)
+<img src="demo_success.png" width="335">
 
 If you check, this curve passes through the four specified points almost exactly.
 
