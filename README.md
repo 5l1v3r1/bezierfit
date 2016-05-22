@@ -4,6 +4,33 @@ With CSS3 animations, you can write Bezier curves that act as animation timing f
 
 Enter **bezierfit**. With **bezierfit**, you can produce a Bezier curve animation which matches a set of key points *as best as possible* (in a mathematical least-squares sense). For instance, suppose you want an animation to go through completion percentages 30%, 50%, 80%, and 90% at time values 0.1, 0.2, 0.5, and 0.8 respectively. With this information, **bezierfit** can search for the Bezier animation which *best matches* the given parameters.
 
+# Usage
+
+First, you must [install Go](https://golang.org/doc/install) and setup a GOPATH. Once you've done that, run:
+
+```
+$ go get github.com/unixpickle/bezierfit
+$ cd $GOPATH/src/github.com/unixpickle/bezierfit
+```
+
+Now you can run the bezierfit command as follows. For the purpose of example, I will feed the program the example described in the Abstract:
+
+```
+$ go run cmd/main.go
+0.1 0.3
+0.2 0.5
+0.5 0.8
+0.8 0.9
+Solving...
+cubic-bezier(0.287,1.071,0.814,0.780)
+```
+
+The bezier curve it provided looks like this:
+
+![Demo Bezier curve](demo_success.png)
+
+If you check, this curve passes through the four specified points almost exactly.
+
 # How it works
 
 Solving a least-squares problem like this is an optimization problem (but not necessarily a convex one). There are several numerical tricks behind **bezierfit**:
