@@ -1,7 +1,5 @@
 package bezierfit
 
-import "math"
-
 const evalIterations = 30
 
 type Point struct {
@@ -60,6 +58,9 @@ func (b *BezierAnimation) yForT(t float64) float64 {
 
 func cubicBezierParametricEquation(p0, p1, p2, p3, t float64) float64 {
 	tComp := 1 - t
-	return math.Pow(tComp, 3)*p0 + 3*math.Pow(tComp, 2)*t*p1 + 3*tComp*math.Pow(t, 2)*p2 +
-		math.Pow(t, 3)*p3
+	tComp2 := tComp * tComp
+	tComp3 := tComp2 * tComp
+	t2 := t * t
+	t3 := t2 * t
+	return tComp3*p0 + 3*tComp2*t*p1 + 3*tComp*t2*p2 + t3*p3
 }
