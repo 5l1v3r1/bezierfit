@@ -6,9 +6,9 @@ import (
 )
 
 const (
-	bestFitAttempts   = 30
+	bestFitAttempts   = 10
 	derivativeEpsilon = 1e-4
-	descentStepSize   = 0.01
+	descentStepSize   = 0.1
 )
 
 // BestFit approximates the BezierAnimation of best
