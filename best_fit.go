@@ -51,7 +51,7 @@ func gradientDescent(points []Point, anim *BezierAnimation) {
 
 	stepSizes := descentStepSizes
 
-	for {
+	for oldError >= acceptableError {
 		var oldValues [4]float64
 		for i, ptr := range paramPtrs {
 			// Using this two-point formula gives O(derivativeEpsilon^2)
