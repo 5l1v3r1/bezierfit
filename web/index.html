@@ -1,8 +1,28 @@
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>BezierFit</title>
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
     <script src="assets/fitter.js"></script>
+    <script src="assets/ui.js"></script>
   </head>
   <body>
+    <button id="reset-button">Reset</button>
+
+    <br>
+    Click anywhere in the box.
+    <br>
+
+    <svg id="preview" viewBox="0 0 1 1">
+      <path d="" id="curve" fill="none" stroke="black" stroke-width="0.01" />
+      <g fill="red" id="points">
+      </g>
+    </svg>
+
+    <br>
+    Curve: <label id="curve-code"></label>
+    
   </body>
 </html>

@@ -18,11 +18,11 @@ func handleMessage(this *js.Object, dataArg []*js.Object) interface{} {
 	requestID := data.Index(0)
 
 	points := make([]bezierfit.Point, data.Length()-1)
-	for i := 1; i < dataArg[0].Length(); i++ {
-		arg := data.Index(i)
+	for i := range points {
+		arg := data.Index(i + 1)
 		x := arg.Get("x").Float()
 		y := arg.Get("y").Float()
-		points[i-1] = bezierfit.Point{X: x, Y: y}
+		points[i] = bezierfit.Point{X: x, Y: y}
 	}
 
 	anim := bezierfit.BestFit(points)
