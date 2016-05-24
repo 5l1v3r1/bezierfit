@@ -21,8 +21,8 @@
     var preview = document.getElementById('preview');
     preview.addEventListener('click', function(e) {
       var bounding = preview.getBoundingClientRect();
-      var posX = (e.clientX - bounding.left) / preview.offsetWidth;
-      var posY = (e.clientY - bounding.top) / preview.offsetHeight;
+      var posX = (e.clientX - bounding.left) / bounding.width;
+      var posY = (e.clientY - bounding.top) / bounding.height;
       addPoint(posX, 1-posY);
     });
 
